@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MathJax Viewer</title>
+	<script type="text/x-mathjax-config">
+	MathJax.Hub.Config({
+	tex2jax: { inlineMath: [["$","$"],["\\(","\\)"]] },
+	"HTML-CSS": {
+	  linebreaks: { automatic: true, width: "container" }          
+	}              
+	});
+	</script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
+
+  <script type="text/javascript" src="script.js"></script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<style>
+    html, body {
+      height: 100%;
+    }
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3vw;
+    }
+    #MathJax_Message{
+      display: none;
+    }
+  </style>
+</head>
+<body>
+    <div id="formula"></div>
+
+    <script type="text/javascript">
+      let isLHS = true;
+      let i = 0;
+
+      $(document).ready(function(){
+        doIt = function(){
+          if (isLHS) {
+            $("#formula").html("\\[" + lhs[idx[i]] + "\\]");
+          } else {
+            $("#formula").html("\\[" + formula[idx[i]] + "\\]");
+            i = (i == idx.length-1) ? 0 : (i + 1);
+          }
+          isLHS ^= true;
+          MathJax.Hub.Typeset();
+        }
+
+        document.onclick = doIt;
+      });
+    </script>
+</body>
+</html>
