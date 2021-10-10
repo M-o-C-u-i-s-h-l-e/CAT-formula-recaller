@@ -1,3 +1,4 @@
+// Complete formulas in Latex form
 const formula = [
   "Arithmetic\\ Mean = \\frac{a_{1} + a_{2} + a_{3} + \\ldots + a_{n}}{n}",
   "Geometric\\ Mean = \\sqrt[n]{a_{1} \\times a_{2} \\times a_{3} \\times \\ldots \\times a_{n}}",
@@ -31,6 +32,8 @@ const formula = [
 
 
 
+// LHS of the formulas in Latex form
+// Fill this 'lhs' array in the same order as you fill the 'formula' array
 const lhs = [
   "Arithmetic\\ Mean = ",
   "Geometric\\ Mean = ",
